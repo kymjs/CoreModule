@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="titlebar_height">55dp</dimen>
+    <dimen name="titlebar_padding">15dp</dimen>
+    <dimen name="titlebar_title_size">15sp</dimen>
+
+</resources>

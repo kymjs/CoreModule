@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emptyview_load_again">点击屏幕  重新加载</string>
+    <string name="emptyview_loading">加载中...</string>
+</resources>

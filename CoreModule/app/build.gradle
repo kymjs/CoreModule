@@ -27,4 +27,10 @@ dependencies {
     compile project(':adapter')
     compile project(':crash')
     compile project(':gallery')
+    compile project(':browser')
+    compile project(':common')
+    compile project(':empty-view')
+    compile project(':kotlin-common')
+    compile project(':share-sdk')
+    compile project(':titlebar')
 }
