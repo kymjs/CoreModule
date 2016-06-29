@@ -8,13 +8,22 @@
         android:id="@+id/titlebar_iv_back"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/titlebar_height"
+        android:contentDescription="@null"
         android:padding="@dimen/titlebar_padding" />
 
     <TextView
         android:id="@+id/titlebar_tv_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_height"
-        android:layout_gravity="center"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:textSize="@dimen/titlebar_title_size" />
+
+    <ImageView
+        android:id="@+id/titlebar_iv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/titlebar_height"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@null"
+        android:padding="@dimen/titlebar_padding" />
 </RelativeLayout>

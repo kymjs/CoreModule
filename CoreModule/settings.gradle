@@ -1,1 +1,1 @@
-include ':app', ':adapter', ':crash', ':gallery', ':titlebar', ':share-sdk', ':browser'
+include ':app', ':adapter', ':crash', ':gallery', ':titlebar', ':share-sdk', ':browser', ':common', ':kotlin-common', ':empty-view'

@@ -5,6 +5,9 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
+        <activity
+            android:name=".BrowserActivity"
+            android:theme="@style/Theme.AppCompat" />
     </application>
 
 </manifest>
