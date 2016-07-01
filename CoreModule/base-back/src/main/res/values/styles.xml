@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="baseback_SwipeBackLayout">
+        <item name="baseback_edge_size">50dip</item>
+        <item name="baseback_shadow_left">@drawable/baseback_shadow_left</item>
+        <item name="baseback_shadow_right">@drawable/baseback_shadow_right</item>
+        <item name="baseback_shadow_bottom">@drawable/baseback_shadow_bottom</item>
+    </style>
+
+    <style name="baseback_AppTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" tools:ignore="ResourceName">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/baseback_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/baseback_colorPrimaryDark</item>
+        <item name="colorAccent">@color/baseback_colorAccent</item>
+    </style>
+</resources>

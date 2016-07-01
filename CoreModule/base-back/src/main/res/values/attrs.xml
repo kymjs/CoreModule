@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="baseback_SwipeBackLayout">
+        <attr name="baseback_edge_size" format="dimension" />
+        <attr name="baseback_edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="baseback_shadow_left" format="reference" />
+        <attr name="baseback_shadow_right" format="reference" />
+        <attr name="baseback_shadow_bottom" format="reference" />
+    </declare-styleable>
+
+    <attr name="baseback_SwipeBackLayoutStyle" format="reference" />
+</resources>
