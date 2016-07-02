@@ -205,3 +205,18 @@ val Context.windowManager: WindowManager
 
 val Context.defaultSharedPreferences: SharedPreferences
     get() = PreferenceManager.getDefaultSharedPreferences(this)
+
+fun Context.inflateLayout(layoutResId: Int): View =
+        inflateView(this, layoutResId, null, false)
+
+fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup): View =
+        inflateLayout(layoutResId, parent, true)
+
+/*
+ * -----------------------------------------------------------------------------
+ *  Private functions
+ * -----------------------------------------------------------------------------
+ */
+private fun inflateView(context: Context, layoutResId: Int, parent: ViewGroup?,
+                        attachToRoot: Boolean): View =
+        LayoutInflater.from(context).inflate(layoutResId, parent, attachToRoot)
