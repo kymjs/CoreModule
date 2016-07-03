@@ -1,4 +1,4 @@
-package com.kymjs.base;
+package com.kymjs.base.activity;
 
 import com.kymjs.base.backactivity.BaseBackActivity;
 

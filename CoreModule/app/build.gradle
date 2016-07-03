@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.kymjs.core"
+        applicationId "com.kymjs.oslab"
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
@@ -24,13 +24,17 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
-    compile project(':adapter')
-    compile project(':crash')
-    compile project(':gallery')
+    compile 'com.kymjs.core:adapter:1.0.0'
+//    compile project(':adapter')
+    compile project(':base')
+    compile project(':base-back')
     compile project(':browser')
     compile project(':common')
+    compile project(':crash')
     compile project(':empty-view')
+    compile project(':gallery')
     compile project(':kotlin-common')
+    compile project(':recycler')
     compile project(':share-sdk')
     compile project(':titlebar')
 }

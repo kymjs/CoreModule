@@ -1,4 +1,4 @@
-package com.kymjs.core;
+package com.kymjs.oslab;
 
 import org.junit.Test;
 
