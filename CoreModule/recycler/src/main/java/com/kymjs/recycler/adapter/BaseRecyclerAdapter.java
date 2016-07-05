@@ -27,7 +27,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         void onItemClick(View view, Object data, int position);
     }
 
-    public BaseRecyclerAdapter(RecyclerView v, Collection<T> datas, int itemLayoutId) {
+    public BaseRecyclerAdapter(Context context, Collection<T> datas, int itemLayoutId) {
         if (datas == null) {
             realDatas = new ArrayList<>();
         } else if (datas instanceof List) {
@@ -36,7 +36,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
             realDatas = new ArrayList<>(datas);
         }
         mItemLayoutId = itemLayoutId;
-        cxt = v.getContext();
+        cxt = context;
     }
 
     /**

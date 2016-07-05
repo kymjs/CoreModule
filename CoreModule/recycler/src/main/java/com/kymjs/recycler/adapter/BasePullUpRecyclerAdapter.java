@@ -32,7 +32,7 @@ public abstract class BasePullUpRecyclerAdapter<T> extends BaseRecyclerAdapter<T
     private OnPullUpListener pullUpListener;
 
     public BasePullUpRecyclerAdapter(RecyclerView v, Collection<T> datas, int itemLayoutId) {
-        super(v, datas, itemLayoutId);
+        super(v.getContext(), datas, itemLayoutId);
         v.addOnScrollListener(new BasePullUpScrollListener());
         footerView = new FooterView(cxt);
     }
