@@ -7,11 +7,11 @@ import android.view.View;
 
 import com.kymjs.base.fragment.BaseFragment;
 import com.kymjs.base.viewdelegate.PullListDelegate;
+import com.kymjs.common.Logger;
 import com.kymjs.oslab.inter.IRequestVo;
+import com.kymjs.recycler.RecyclerItemClickListener;
 import com.kymjs.recycler.adapter.BasePullUpRecyclerAdapter;
-import com.kymjs.recycler.adapter.BaseRecyclerAdapter;
 import com.kymjs.rxvolley.client.HttpCallback;
-import com.kymjs.rxvolley.toolbox.Loger;
 import com.kymjs.view.EmptyLayout;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by ZhangTao on 7/2/16.
  */
 public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate> implements
-        SwipeRefreshLayout.OnRefreshListener, IRequestVo, BaseRecyclerAdapter.OnItemClickListener {
+        SwipeRefreshLayout.OnRefreshListener, IRequestVo {
 
     protected BasePullUpRecyclerAdapter<T> adapter;
     protected ArrayList<T> datas = new ArrayList<>();
@@ -45,7 +45,7 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
         @Override
         public void onSuccess(String t) {
             super.onSuccess(t);
-            Loger.debug("===列表网络请求:" + t);
+            Logger.log("===列表网络请求:" + t);
             if (viewDelegate != null && viewDelegate.mEmptyLayout != null) {
                 if (tempDatas == null || tempDatas.isEmpty() || adapter == null || adapter
                         .getItemCount() < 1) {
@@ -61,7 +61,7 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
         @Override
         public void onFailure(int errorNo, String strMsg) {
             super.onFailure(errorNo, strMsg);
-            Loger.debug("====网络请求异常" + strMsg);
+            Logger.log("====网络请求异常" + strMsg);
             //有可能界面已经关闭网络请求仍然返回
             if (viewDelegate != null && viewDelegate.mEmptyLayout != null && adapter != null) {
                 if (adapter.getItemCount() > 1) {
@@ -92,7 +92,6 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
         adapter = getAdapter();
         bindEven();
         viewDelegate.setOnRefreshListener(this);
-        adapter.setOnItemClickListener(this);
         doRequest();
     }
 
@@ -125,6 +124,12 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
+        viewDelegate.mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext()) {
+            @Override
+            protected void onItemClick(View view, int position) {
+                BaseListFragment.this.onItemClick(view, datas.get(position), position);
+            }
+        });
         viewDelegate.mRecyclerView.setAdapter(adapter);
     }
 
@@ -138,5 +143,5 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
         doRequest();
     }
 
-
+    protected abstract void onItemClick(View view, T data, int position);
 }

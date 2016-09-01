@@ -12,6 +12,7 @@ import com.kymjs.themvp.databind.DataBindActivity;
 public class MainActivity extends DataBindActivity<MainViewDelegate, ActivityMainBinding> {
 
     private static final String TAG = "MainActivity";
+    Fragment fragment = new BlogFragment();
 
     @Override
     protected Class<MainViewDelegate> getDelegateClass() {
@@ -21,7 +22,6 @@ public class MainActivity extends DataBindActivity<MainViewDelegate, ActivityMai
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fragment fragment = new BlogFragment();
-        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.main_body);
+        ActivityUtils.changeFragment(getSupportFragmentManager(), fragment, R.id.main_body);
     }
 }
