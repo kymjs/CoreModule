@@ -1,5 +1,5 @@
 /*
- * Copyright 2016, The Android Open Source Project
+ * Copyright (c) 2015, 张涛.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.kymjs.model.osc;
 
-package com.kymjs.base;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public interface BaseView<T> {
+import java.io.Serializable;
 
-    void setPresenter(T presenter);
+@XStreamAlias("oschina")
+public class OSCBlogEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @XStreamAlias("blog")
+    private OSCBlog blog;
+
+    public OSCBlog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(OSCBlog blog) {
+        this.blog = blog;
+    }
 
 }

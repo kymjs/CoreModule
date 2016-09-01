@@ -1,7 +1,6 @@
 package com.kymjs.recycler.adapter;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +20,6 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     protected List<T> realDatas;
     protected final int mItemLayoutId;
     protected Context cxt;
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(View view, Object data, int position);
-    }
 
     public BaseRecyclerAdapter(Context context, Collection<T> datas, int itemLayoutId) {
         if (datas == null) {
@@ -57,27 +51,11 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     @Override
     public void onBindViewHolder(RecyclerHolder holder, int position) {
         convert(holder, realDatas.get(position), position);
-        holder.itemView.setOnClickListener(getOnClickListener(position));
     }
 
     @Override
     public int getItemCount() {
         return realDatas.size();
-    }
-
-    public void setOnItemClickListener(OnItemClickListener l) {
-        listener = l;
-    }
-
-    public View.OnClickListener getOnClickListener(final int position) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(@Nullable View v) {
-                if (listener != null && v != null) {
-                    listener.onItemClick(v, realDatas.get(position), position);
-                }
-            }
-        };
     }
 
     public BaseRecyclerAdapter<T> refresh(Collection<T> datas) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016, The Android Open Source Project
+ * Copyright (c) 2015, 张涛.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.kymjs.oslab.module.main;
 
-package com.kymjs.base;
+import com.kymjs.oslab.R;
+import com.kymjs.themvp.view.AppDelegate;
 
-public interface BasePresenter {
 
-    void start();
+/**
+ * View视图层，完全移除与Presenter业务逻辑的耦合
+ *
+ * @author kymjs (http://www.kymjs.com/) on 10/23/15.
+ */
+public class MainViewDelegate extends AppDelegate {
 
+    @Override
+    public int getRootLayoutId() {
+        return R.layout.activity_main;
+    }
 }

@@ -17,12 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile project(':base-back')
+    compile 'com.kymjs.core:recycler:1.0.0'
     compile project(':empty-view')
-    compile project(':recycler')
+//    compile project(':themvp')
+    compile 'com.kymjs.core:themvp:1.0.7'
 }
