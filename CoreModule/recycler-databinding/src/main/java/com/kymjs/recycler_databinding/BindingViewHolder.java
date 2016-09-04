@@ -1,12 +1,13 @@
 package com.kymjs.recycler_databinding;
 
 import android.databinding.ViewDataBinding;
-import android.support.v7.widget.RecyclerView;
+
+import com.kymjs.recycler.adapter.RecyclerHolder;
 
 /**
  * Created by ZhangTao on 8/15/16.
  */
-public class BindingViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder {
+public class BindingViewHolder<T extends ViewDataBinding> extends RecyclerHolder {
 
     protected final T mBinding;
 

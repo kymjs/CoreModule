@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/main_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <include layout="@layout/item_bottombar" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titlebar_text_exittip"
+        style="@style/titlebar_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignTop="@+id/toolbar"
+        android:background="@color/colorPrimaryDark"
+        android:padding="3dp"
+        android:text="@string/double_click_exit"
+        android:visibility="gone" />
+</FrameLayout>

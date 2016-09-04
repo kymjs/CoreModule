@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by ZhangTao on 7/2/16.
  */
-public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate> implements
+public abstract class BaseListFragment<T, D extends PullListDelegate> extends BaseFragment<D> implements
         SwipeRefreshLayout.OnRefreshListener, IRequestVo {
 
     protected BasePullUpRecyclerAdapter<T> adapter;
@@ -80,11 +80,6 @@ public abstract class BaseListFragment<T> extends BaseFragment<PullListDelegate>
             }
         }
     };
-
-    @Override
-    protected Class<PullListDelegate> getDelegateClass() {
-        return PullListDelegate.class;
-    }
 
     @Override
     protected void bindEvenListener() {

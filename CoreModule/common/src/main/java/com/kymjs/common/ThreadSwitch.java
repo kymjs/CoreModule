@@ -7,6 +7,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
+ * 线程切换工具类
  * Created by ZhangTao on 9/1/16.
  */
 public class ThreadSwitch extends Thread {
