@@ -23,8 +23,6 @@
         style="@style/titlebar_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_height"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignTop="@+id/toolbar"
         android:background="@color/colorPrimaryDark"
         android:padding="3dp"
         android:text="@string/double_click_exit"

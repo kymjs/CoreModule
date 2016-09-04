@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">开源实验室</string>
+    <string name="kymjs_blog_name">开源实验室</string>
 
     <string name="str_search">搜索</string>
     <string name="str_blog">博客</string>
     <string name="str_find">穿衣</string>
+    <string name="str_share">分享</string>
 
     <string name="double_click_exit">再次点击返回键切换到桌面</string>
+    
+    <string name="blog_detail">博客详情</string>
+    <string name="str_collect">收藏</string>
 </resources>

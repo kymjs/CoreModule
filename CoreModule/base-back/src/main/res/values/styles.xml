@@ -10,6 +10,9 @@
 
     <style name="baseback_AppTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- Base application theme. -->

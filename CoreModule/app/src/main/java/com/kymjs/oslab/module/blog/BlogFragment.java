@@ -111,7 +111,7 @@ public class BlogFragment extends BaseListFragment<Blog, BlogListViewDelegate> {
 
     @Override
     protected void onItemClick(View view, Blog data, int position) {
-
+        BlogDetailActivity.goinActivity(view.getContext(), data.getLink(), data.getTitle());
     }
 
     @Override

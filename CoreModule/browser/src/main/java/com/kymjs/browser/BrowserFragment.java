@@ -2,7 +2,6 @@ package com.kymjs.browser;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,7 +37,6 @@ public class BrowserFragment extends Fragment implements SwipeRefreshLayout.OnRe
     public ProgressBar mProgress;
     public EmptyLayout mEmptyLayout;
     public SwipeRefreshLayout mRefreshLayout;
-    private Activity aty;
 
     private WebViewCallback callback;
 
@@ -59,8 +57,7 @@ public class BrowserFragment extends Fragment implements SwipeRefreshLayout.OnRe
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        aty = getActivity();
-        mRootView = View.inflate(aty, R.layout.browser_fragment_layout, null);
+        mRootView = View.inflate(getActivity(), R.layout.browser_fragment_layout, null);
         mRefreshLayout = (SwipeRefreshLayout) mRootView.findViewById(R.id.browser_swiperefresh);
         mWebView = (WebView) mRootView.findViewById(R.id.browser_webview);
         mEmptyLayout = (EmptyLayout) mRootView.findViewById(R.id.browser_emptyview);

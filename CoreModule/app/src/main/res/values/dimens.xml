@@ -16,7 +16,8 @@
     <dimen name="space_180">180dp</dimen>
 
     <!-- Main -->
-    <dimen name="title_topmargin">43dp</dimen>
-    <dimen name="titlebar_height">45dp</dimen>
+    <dimen name="title_topmargin">53dp</dimen>
+    <dimen name="title_height">55dp</dimen>
     <dimen name="bottombar_height">60dp</dimen>
+    <dimen name="title_padding_top">0dp</dimen>
 </resources>

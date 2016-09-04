@@ -5,26 +5,30 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.kymjs.base.util.ActivityUtils;
 import com.kymjs.oslab.R;
 import com.kymjs.oslab.module.blog.BlogFragment;
+import com.kymjs.oslab.module.dress.DressFragment;
 import com.kymjs.oslab.utils.KJAnimations;
 
 /**
  * 不要为了MVP而MVP，简单逻辑直接一个类搞定就可以了
  * Created by ZhangTao on 9/3/16.
  */
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
+public class Main2Activity extends AppCompatActivity {
     private static final String TAG = "Main2Activity";
 
     private Fragment fragment1 = new BlogFragment();
-    private Fragment fragment2 = new BlogFragment();
+    private Fragment fragment2 = new DressFragment();
+    private Fragment currentFragment; //当前内容所显示的Fragment
 
     private TextView tvExitTip;
 
@@ -43,24 +47,47 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_new);
         tvExitTip = (TextView) findViewById(R.id.titlebar_text_exittip);
-        ActivityUtils.changeFragment(getSupportFragmentManager(), fragment1, R.id.main_body);
+        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment1, R.id.main_body);
 
-        findViewById(R.id.bottombar_content1).setOnClickListener(this);
-        findViewById(R.id.bottombar_content1).setOnClickListener(this);
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.bottombar_group);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (radioGroup.getCheckedRadioButtonId()) {
+                    case R.id.bottombar_content1:
+                        changeFragment(fragment1);
+                        break;
+                    case R.id.bottombar_content2:
+                        changeFragment(fragment2);
+                        break;
+                }
+            }
+        });
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bottombar_content1:
-                ActivityUtils.changeFragment(getSupportFragmentManager(), fragment1, R.id.main_body);
-                break;
-            case R.id.bottombar_content2:
-                ActivityUtils.changeFragment(getSupportFragmentManager(), fragment2, R.id.main_body);
-                break;
+    /**
+     * 用Fragment替换内容区
+     *
+     * @param targetFragment 用来替换的Fragment
+     */
+    public void changeFragment(Fragment targetFragment) {
+        if (targetFragment.equals(currentFragment)) {
+            return;
         }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (!targetFragment.isAdded()) {
+            transaction.add(R.id.main_body, targetFragment, targetFragment.getClass()
+                    .getName());
+        }
+        if (targetFragment.isHidden()) {
+            transaction.show(targetFragment);
+        }
+        if (currentFragment != null && currentFragment.isVisible()) {
+            transaction.hide(currentFragment);
+        }
+        currentFragment = targetFragment;
+        transaction.commit();
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

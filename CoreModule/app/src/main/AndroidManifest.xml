@@ -28,18 +28,24 @@
             </intent-filter>
         </activity>
         <!--<activity-->
-            <!--android:name=".module.main.MainActivity"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--android:name=".module.main.MainActivity"-->
+        <!--android:label="@string/app_name"-->
+        <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <activity
             android:name=".activity.DemoBackActivity"
+            android:theme="@style/baseback_AppTheme" />
+        <activity
+            android:name=".module.browser.MobelBrowserActivity"
+            android:theme="@style/baseback_AppTheme" />
+        <activity
+            android:name=".module.blog.BlogDetailActivity"
             android:theme="@style/baseback_AppTheme" />
     </application>
 

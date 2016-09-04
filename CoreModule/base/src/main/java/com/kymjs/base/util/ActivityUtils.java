@@ -37,23 +37,4 @@ public class ActivityUtils {
         transaction.add(frameId, fragment);
         transaction.commit();
     }
-
-    /**
-     * 用Fragment替换内容区
-     */
-    public static void changeFragment(@NonNull FragmentManager fragmentManager,
-                                      @NonNull Fragment fragment, int frameId) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        if (!fragment.isAdded()) {
-            transaction.add(frameId, fragment, fragment.getClass().getName());
-        }
-        if (fragment.isHidden()) {
-            transaction.show(fragment);
-        }
-        if (fragment.isVisible()) {
-            transaction.hide(fragment);
-        }
-        transaction.commit();
-    }
-
 }

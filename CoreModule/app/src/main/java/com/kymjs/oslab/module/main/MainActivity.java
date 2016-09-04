@@ -22,6 +22,6 @@ public class MainActivity extends DataBindActivity<MainViewDelegate, ActivityMai
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityUtils.changeFragment(getSupportFragmentManager(), fragment, R.id.main_body);
+        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.main_body);
     }
 }

@@ -12,7 +12,7 @@ import com.kymjs.themvp.view.IDelegate;
  *
  * @author kymjs (http://www.kymjs.com/) on 11/6/15.
  */
-public abstract class BaseBackActivity<T extends IDelegate> extends BaseActivity {
+public abstract class BaseBackActivity<T extends IDelegate> extends BaseActivity<T> {
     private BackActivityHelper mHelper;
 
     @Override
