@@ -20,5 +20,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided project(':common')
+    compile 'com.kymjs.core:common:1.0.1'
 }

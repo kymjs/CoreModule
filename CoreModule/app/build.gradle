@@ -39,7 +39,6 @@ dependencies {
     
     compile project(':browser')
     
-    
     compile project(':crash')
     compile project(':titlebar')
     compile project(':kotlin-common')

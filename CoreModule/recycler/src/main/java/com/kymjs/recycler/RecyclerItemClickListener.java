@@ -9,6 +9,7 @@ import android.view.View;
 /**
  * Created by ZhangTao on 7/6/16.
  */
+@Deprecated
 public abstract class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
 
     protected abstract void onItemClick(View view, int position);

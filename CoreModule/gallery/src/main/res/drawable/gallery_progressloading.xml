@@ -11,7 +11,7 @@
             <bitmap
                 android:antialias="true"
                 android:filter="true"
-                android:src="@mipmap/loading" />
+                android:src="@mipmap/gallery_loading" />
         </rotate>
     </item>
 

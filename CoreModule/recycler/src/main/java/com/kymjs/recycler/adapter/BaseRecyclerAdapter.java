@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kymjs.recycler.OnItemClickListener;
+import com.kymjs.recycler.OnItemLongClickListener;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,6 +23,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     protected List<T> realDatas;
     protected final int mItemLayoutId;
     protected Context cxt;
+    protected OnItemLongClickListener mOnItemLongClickListener;
+    protected OnItemClickListener mOnItemClickListener;
 
     public BaseRecyclerAdapter(Context context, Collection<T> datas, int itemLayoutId) {
         if (datas == null) {
@@ -49,8 +54,24 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     }
 
     @Override
-    public void onBindViewHolder(RecyclerHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerHolder holder, final int position) {
         convert(holder, realDatas.get(position), position);
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.onItemClick(v, holder.getAdapterPosition());
+                }
+            });
+        }
+        if (mOnItemLongClickListener != null) {
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    return mOnItemLongClickListener.onItemLongClick(v, holder.getAdapterPosition());
+                }
+            });
+        }
     }
 
     @Override
@@ -76,4 +97,25 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         notifyDataSetChanged();
         return this;
     }
+
+    /**
+     * Register a callback to be invoked when an item in this AdapterView has
+     * been clicked.
+     *
+     * @param listener The callback that will be invoked.
+     */
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mOnItemClickListener = listener;
+    }
+
+    /**
+     * Register a callback to be invoked when an item in this AdapterView has
+     * been clicked and held
+     *
+     * @param listener The callback that will run
+     */
+    public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+        mOnItemLongClickListener = listener;
+    }
+
 }

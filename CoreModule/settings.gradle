@@ -1,1 +1,1 @@
-include ':adapter', ':crash', ':gallery', ':titlebar', ':share-sdk', ':browser', ':common', ':kotlin-common', ':empty-view', ':recycler', ':base-back', ':base', ':app', ':recycler-databinding', ':model', ':api'
+include ':adapter', ':crash', ':gallery', ':titlebar', ':share-sdk', ':browser', ':kotlin-common', ':empty-view', ':recycler', ':base-back', ':base', ':app', ':recycler-databinding', ':model', ':api'

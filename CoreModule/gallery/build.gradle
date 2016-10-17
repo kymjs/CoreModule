@@ -9,7 +9,7 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName version
-        resourcePrefix "msgbox_"
+        resourcePrefix "gallery_"
     }
     buildTypes {
         release {

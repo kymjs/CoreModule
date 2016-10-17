@@ -41,7 +41,7 @@ public class KJGalleryActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kjgallery);
+        setContentView(R.layout.gallery_activity_kjgallery);
 
         Intent from = getIntent();
         imageUrls = from.getStringArrayExtra(URL_KEY);

@@ -2,8 +2,6 @@ package com.kymjs.gallery;
 
 import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -39,7 +37,7 @@ public class SamplePagerAdapter extends PagerAdapter {
 
     @Override
     public View instantiateItem(ViewGroup container, int position) {
-        View root = View.inflate(aty, R.layout.item_pager, null);
+        View root = View.inflate(aty, R.layout.gallery_item_pager, null);
         final PhotoView photoView = (PhotoView) root.findViewById(R.id.images);
         final ProgressBar mProgressBar = (ProgressBar) root.findViewById(R.id.progress);
         mProgressBar.setVisibility(View.VISIBLE);

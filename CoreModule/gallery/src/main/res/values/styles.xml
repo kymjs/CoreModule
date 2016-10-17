@@ -3,7 +3,7 @@
 	<!-- 加载滚动条样式 -->
 	<style name="loading">
 		<item name="android:indeterminate">true</item>
-		<item name="android:indeterminateDrawable">@drawable/progressloading</item>
+		<item name="android:indeterminateDrawable">@drawable/gallery_progressloading</item>
 		<item name="android:indeterminateDuration">1000</item>
 		<item name="android:indeterminateOnly">true</item>
 	</style>

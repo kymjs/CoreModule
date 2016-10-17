@@ -23,9 +23,9 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
-    compile project(':empty-view')
+    compile 'com.kymjs.core:empty-view:1.0.1'
     compile project(':gallery')
     compile project(':share-sdk')
     compile project(':base-back')
-    compile project(':common')
+    compile 'com.kymjs.core:common:1.0.1'
 }

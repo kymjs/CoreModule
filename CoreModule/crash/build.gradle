@@ -19,10 +19,10 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 def siteUrl = REPO_URL      // 项目的主页
 def gitUrl = REPO_GIT   // Git仓库的url
-def module_name = ADAPTER_MODULE_NAME
+def module_name = CRASH_MODULE_NAME
 
 group = PROJECT_GROUP
-version = ADAPTER_MODULE_VERSION
+version = CRASH_MODULE_VERSION
 
 install {
     repositories.mavenInstaller {
