@@ -43,7 +43,7 @@ public abstract class BasePullMultiTypeRecyclerAdapter<T> extends BasePullUpRecy
         if (viewType == TYPE_FOOTER) {
             return super.onCreateViewHolder(parent, viewType);
         } else {
-            View root = View.inflate(cxt, mItemLayoutId, null);
+            View root = View.inflate(cxt, getItemIdByType(viewType), null);
             return new RecyclerHolder(root);
         }
     }
