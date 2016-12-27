@@ -18,8 +18,8 @@ import java.util.Collection;
  */
 public abstract class BasePullUpRecyclerAdapter<T> extends BaseRecyclerAdapter<T> {
 
-    public static final int TYPE_FOOTER = 0;
-    public static final int TYPE_ITEM = 1;
+    public static final int TYPE_FOOTER = -1000;
+    public static final int TYPE_ITEM = -1001;
 
     public static final int STATE_INVISIBLE = 0;
     public static final int STATE_LOADING = 1;
