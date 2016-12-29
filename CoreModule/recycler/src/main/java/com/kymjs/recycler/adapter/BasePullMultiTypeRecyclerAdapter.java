@@ -1,6 +1,7 @@
 package com.kymjs.recycler.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -43,7 +44,8 @@ public abstract class BasePullMultiTypeRecyclerAdapter<T> extends BasePullUpRecy
         if (viewType == TYPE_FOOTER) {
             return super.onCreateViewHolder(parent, viewType);
         } else {
-            View root = View.inflate(cxt, getItemIdByType(viewType), null);
+            LayoutInflater inflater = LayoutInflater.from(cxt);
+            View root = inflater.inflate(getItemIdByType(viewType), parent, false);
             return new RecyclerHolder(root);
         }
     }

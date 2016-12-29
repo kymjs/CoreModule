@@ -29,6 +29,7 @@ public abstract class BasePullUpRecyclerAdapter<T> extends BaseRecyclerAdapter<T
     protected int state = STATE_LOADING;
 
     protected FooterView footerView;
+    protected boolean isScrolling;
     private OnPullUpListener pullUpListener;
 
     public BasePullUpRecyclerAdapter(RecyclerView v, Collection<T> datas, int itemLayoutId) {
@@ -144,9 +145,14 @@ public abstract class BasePullUpRecyclerAdapter<T> extends BaseRecyclerAdapter<T
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
-            if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 ==
-                    getItemCount() && pullUpListener != null) {
-                pullUpListener.onBottom(state);
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                isScrolling = true;
+                if (lastVisibleItem + 1 ==
+                        getItemCount() && pullUpListener != null) {
+                    pullUpListener.onBottom(state);
+                }
+            } else {
+                isScrolling = false;
             }
         }
 
